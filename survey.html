@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey - PureGym British Business Week</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="main-header">
+    <h1>PureGym Presentation for British Business Week</h1>
+    <p>Welcome to view the detailed data and extended analysis in this briefing.</p>
+    
+    <button class="menu-toggle" aria-controls="mobile-menu" aria-expanded="false">
+        <span class="sr-only">Toggle navigation menu</span>
+        ☰ </button>
+    
+    <nav class="main-nav" id="mobile-menu">
+        <a href="index.html" class="nav-link current">Home page</a>
+        <a href="contact.html" class="nav-link">Contact us</a>
+        <a href="survey.html" class="nav-link">Questionnaire</a>
+    </nav>
+    </header>
+
+<main class="content-section">
+        <h2>Presentation Feedback Survey</h2>
+        <p>Please answer the following questions based on your understanding and views regarding the PureGym presentation content.</p>
+
+        <form action="[INSERT YOUR FORMSPREE URL HERE]" method="POST" class="survey-form">
+            
+            <input type="hidden" name="_next" value="thank-you.html" />
+            
+            <input type="hidden" name="_subject" value="PureGym Presentation Feedback Received" />
+
+            <fieldset class="form-group data-box">
+                <legend>1. Do you currently have a PureGym membership?</legend>
+                
+                <label class="radio-label">
+                    <input type="radio" name="q1_membership" value="yes" required> Yes
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="q1_membership" value="no"> No
+                </label>
+            </fieldset>
+
+            <div class="form-group data-box">
+                <label for="q2_informativeness">2. How informative did you find our PureGym exhibition? (1 Star = Least, 5 Stars = Most)</label>
+                <input type="range" id="q2_informativeness" name="q2_informativeness" min="1" max="5" value="3" oninput="this.nextElementSibling.value=this.value">
+                <output>3</output> out of 5 Stars
+            </div>
+
+            <fieldset class="form-group data-box">
+                <legend>3. What part of the exhibition stand did you find most interesting? (Please select one)</legend>
+                
+                <label class="radio-label">
+                    <input type="radio" name="q3_most_interesting" value="poster" required> Poster
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="q3_most_interesting" value="leaflet"> Leaflet
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="q3_most_interesting" value="brochure"> Brochure
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="q3_most_interesting" value="website"> Website
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="q3_most_interesting" value="presentation"> Presentation
+                </label>
+            </fieldset>
+
+            <fieldset class="form-group data-box">
+                <legend>4. How easy was it to understand the information?</legend>
+                
+                <label class="radio-label">
+                    <input type="radio" name="q4_understanding" value="very_easy" required> Very easy
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="q4_understanding" value="somewhat_easy"> Somewhat easy
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="q4_understanding" value="difficult"> Difficult
+                </label>
+            </fieldset>
+
+            <div class="form-group data-box">
+                <label for="q5_standout">5. What do you think makes Pure Gym stand out from other gyms?</label>
+                <textarea id="q5_standout" name="q5_standout" rows="5" placeholder="Enter your answer here..."></textarea>
+            </div>
+            
+            <div class="form-group data-box">
+                <label for="q6_suggestions">6. Do you have any suggestions to improve our stand or website?</label>
+                <textarea id="q6_suggestions" name="q6_suggestions" rows="5" placeholder="Enter your answer here..."></textarea>
+            </div>
+
+            <button type="submit" id="survey-submit-button">Submit Survey</button>
+            
+        </form>
+    </main>
+
+    <footer class="main-footer">
+        <p>2025 [Ivo/Gp1]。 <span id="last-updated"></span></p>
+    </footer>
+    
+    <script src="script.js"></script> 
+</body>
+</html>
