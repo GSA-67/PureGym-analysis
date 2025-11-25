@@ -1,0 +1,533 @@
+/* -------------------------------------- */
+/* 1. 變量與基礎設置 */
+/* -------------------------------------- */
+:root {
+    /* 引入 PureGym 相關配色：通常是黑色、黃色/綠色，這裡選擇專業的藍色調作為主色 */
+    --primary-color: #004c99;   /* 深藍色 (主色調，用於按鈕、標題下劃線) */
+    --accent-color: #ffc107;    /* 亮黃色 (強調色，用於點綴或突出顯示) */
+    --background-light: #f4f7f6; /* 淺灰色 (區塊背景) */
+    --text-color: #333;
+    --shadow-color: rgba(0, 0, 0, 0.08); /* 陰影顏色 */
+}
+
+body {
+    /* 使用更現代的字體堆疊 */
+    font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.7; /* 增加行高以提高可讀性 */
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff; 
+    color: var(--text-color);
+}
+
+/* 確保所有連結顏色與主色調一致 */
+a {
+    color: var(--primary-color);
+    text-decoration: none; /* 預設移除下劃線 */
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--accent-color); /* 鼠標懸停時變為強調色 */
+    text-decoration: underline;
+}
+
+/* -------------------------------------- */
+/* 2. 標頭與頁尾 */
+/* -------------------------------------- */
+.main-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 50px 20px; /* 增加上下內邊距，更具空間感 */
+    text-align: center;
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.main-header h1 {
+    margin: 0 0 10px 0;
+    font-size: 3em; /* 增大標題字體 */
+    letter-spacing: 1px;
+}
+
+.main-header p {
+    font-size: 1.1em;
+    opacity: 0.9;
+}
+
+.main-footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #222; /* 更深的顏色 */
+    color: white;
+    font-size: 0.9em;
+    margin-top: 60px;
+}
+
+/* -------------------------------------- */
+/* 3. 內容區塊與排版 */
+/* -------------------------------------- */
+.content-section {
+    max-width: 1000px; /* 增加最大寬度 */
+    margin: 50px auto;
+    padding: 0 30px;
+}
+
+h2 {
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--accent-color); /* 用強調色作為下劃線 */
+    padding-bottom: 15px;
+    margin-top: 50px;
+    font-weight: 600;
+}
+
+h3 {
+    color: var(--primary-color);
+}
+
+/* ====== 新增的圖片容器樣式 ====== */
+.image-container {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: var(--background-light);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.main-content-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block; /* 移除圖片底部多餘空間 */
+    margin: 0 auto; /* 圖片居中 */
+    border: 1px solid #eee;
+}
+/* ================================================= */
+
+
+/* -------------------------------------- */
+/* 4. 數據卡片樣式 (提升立體感) */
+/* -------------------------------------- */
+.data-box {
+    background-color: var(--background-light);
+    border: 1px solid #ddd;
+    border-left: 5px solid var(--accent-color); /* 使用強調色作左邊框 */
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 8px; /* 圓角效果 */
+    /* 輕微陰影，增加立體感 */
+    box-shadow: 0 3px 10px var(--shadow-color); 
+    transition: transform 0.3s ease;
+}
+
+.data-box:hover {
+    /* 鼠標懸停時輕微抬起 */
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 15px var(--shadow-color);
+}
+
+.data-box ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.data-box ul li {
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path fill="%23004c99" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>') no-repeat left 5px;
+    padding-left: 25px; /* 為圖標留出空間 */
+    margin-bottom: 8px;
+}
+
+/* -------------------------------------- */
+/* 5. JavaScript 互動與按鈕 */
+/* -------------------------------------- */
+#reveal-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 30px; /* 增大按鈕尺寸 */
+    font-size: 1.1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 3px 5px var(--shadow-color);
+}
+
+#reveal-button:hover {
+    background-color: #003366; /* 懸停時變暗 */
+    transform: translateY(-1px);
+}
+
+.hidden-text {
+    display: none; 
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #e0f7fa; /* 淺藍色背景，突出顯示結論 */
+    border-left: 5px solid var(--accent-color);
+    color: #004c99;
+    font-style: italic;
+    border-radius: 4px;
+}
+
+/* -------------------------------------- */
+/* 6. 確保在手機上也能正常顯示 */
+/* -------------------------------------- */
+@media (max-width: 600px) {
+    .main-header h1 {
+        font-size: 2em;
+    }
+    
+    .content-section {
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+
+    #reveal-button {
+        width: 100%; /* 手機上按鈕佔滿全寬 */
+        padding: 15px 0;
+    }
+}
+
+/* -------------------------------------- */
+/* 7. 導航欄樣式 */
+/* -------------------------------------- */
+.main-nav {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.nav-link {
+    color: white;
+    margin: 0 15px;
+    padding: 8px 15px;
+    display: inline-block;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-link:hover, .nav-link.current {
+    background-color: rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+}
+
+/* -------------------------------------- */
+/* 9. 聯繫表單樣式 */
+/* -------------------------------------- */
+.contact-form {
+    padding: 20px;
+    background-color: var(--background-light);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block; /* 讓標籤獨佔一行 */
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* 確保 padding 不會增加寬度 */
+    font-size: 1em;
+    font-family: inherit;
+}
+
+.form-group textarea {
+    resize: vertical; /* 允許用戶垂直調整大小 */
+}
+
+#submit-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    width: 100%; /* 讓提交按鈕佔滿全寬 */
+}
+
+#submit-button:hover {
+    background-color: #003366;
+}
+
+/* -------------------------------------- */
+/* 10. 問卷專用樣式 */
+/* -------------------------------------- */
+
+.survey-form {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+/* 讓單選和多選選項並排顯示，並點擊整行都能選中 */
+.radio-label, .checkbox-label {
+    display: block;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    background-color: var(--background-light);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.radio-label:hover, .checkbox-label:hover {
+    background-color: #e9ecef;
+}
+
+.radio-label input[type="radio"], 
+.checkbox-label input[type="checkbox"] {
+    margin-right: 10px;
+    /* 讓 input 與文字對齊 */
+    vertical-align: middle; 
+}
+
+/* 隱藏 data-box 原來的左邊框，讓問卷題目看起來更柔和 */
+.survey-form .data-box {
+    border-left: none;
+    padding: 20px;
+}
+
+.survey-form fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.survey-form legend {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    display: block;
+}
+
+/* 提交按鈕樣式 */
+#survey-submit-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    width: 100%;
+    margin-top: 30px;
+}
+
+#survey-submit-button:hover {
+    background-color: #003366;
+}
+/* style.css (在檔案頂部或 1. 變量與基礎設置 之後加入) */
+html {
+    /* 啟用全域平滑滾動，提高用戶點擊導航時的體驗 */
+    scroll-behavior: smooth; 
+}
+
+/* -------------------------------------- */
+/* 聯繫表單樣式 (為錯誤提示新增樣式) */
+/* -------------------------------------- */
+/* 讓錯誤文字更顯眼 */
+.error-message {
+    color: #cc0000; /* 深紅色 */
+    font-size: 0.85em;
+    margin-top: 5px;
+    display: none; /* 預設隱藏 */
+}
+
+/* 讓用戶輸入錯誤時的欄位有紅色邊框 */
+.form-group.error input[type="text"],
+.form-group.error input[type="email"],
+.form-group.error textarea {
+    border-color: #cc0000;
+}
+
+/* -------------------------------------- */
+/* 9. 手機漢堡選單 (Hamburger Menu) 樣式 */
+/* -------------------------------------- */
+
+/* 預設隱藏漢堡按鈕 */
+.menu-toggle {
+    display: none; 
+}
+
+/* 針對窄螢幕進行優化 */
+@media (max-width: 768px) {
+    
+    /* 1. 顯示漢堡按鈕 */
+    .menu-toggle {
+        display: block; /* 在手機上顯示 */
+        background: none;
+        color: white;
+        border: 2px solid white;
+        padding: 10px 15px;
+        font-size: 1.5em;
+        cursor: pointer;
+        margin-top: 20px;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+    
+    .menu-toggle:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* 2. 更改導航欄的佈局 */
+    .main-nav {
+        /* 在手機上預設為垂直堆疊 */
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-top: 10px;
+        /* 實現滑出效果的關鍵：將它絕對定位在 Header 內 */
+        position: absolute;
+        top: 100%; /* 從 Header 底部開始 */
+        left: 0;
+        background-color: #004c99; /* 與 Header 相同的深藍色 */
+        z-index: 100; /* 確保它在其他內容之上 */
+        overflow: hidden; /* 隱藏超出邊界的部分 */
+        
+        /* 預設收起 (使用 max-height 進行動畫) */
+        max-height: 0; 
+        transition: max-height 0.4s ease-in-out; 
+    }
+
+    /* 3. 選單展開時的樣式 */
+    .main-nav.expanded {
+        /* 設置一個足夠大的高度來顯示所有內容 */
+        max-height: 300px; 
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    /* 4. 讓連結獨佔一行 */
+    .nav-link {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 12px 0;
+        margin: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .nav-link:last-child {
+        border-bottom: none;
+    }
+}
+
+/* -------------------------------------- */
+/* 10. 數據視覺化樣式 (Dummy Chart) */
+/* -------------------------------------- */
+.chart-container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    margin-top: 20px;
+    text-align: center;
+}
+
+.chart-container h3 {
+    color: var(--primary-color);
+    margin-bottom: 25px;
+}
+
+/* 模擬圓餅圖容器 */
+.pie-chart-dummy {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%; /* 圓形 */
+    background: conic-gradient(
+        #004c99 0% 75%,        /* Membership: 75% - 深藍色 */
+        #ffc107 75% 90%,        /* PT: 15% - 亮黃色 (75% + 15% = 90%) */
+        #8bc34a 90% 100%       /* Retail: 10% - 綠色 (90% + 10% = 100%) */
+    );
+    margin: 30px auto;
+    position: relative;
+    /* 增加一個白色圓圈在中間，模擬甜甜圈圖或增加視覺層次 */
+    box-shadow: 0 0 0 25px white inset; 
+    border: 3px solid #ddd;
+}
+
+/* 圓餅圖上的文字切片 */
+.pie-chart-dummy .slice {
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    font-size: 0.85em;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+/* 定位各切片文字 */
+.pie-chart-dummy .membership {
+    top: 50px; 
+    left: 20px; 
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.pie-chart-dummy .PT {
+    top: 20px;
+    right: 50px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.pie-chart-dummy .retail {
+    bottom: 30px;
+    right: 30px;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* 圖例 */
+.chart-legend {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* 圖例間距 */
+    margin-top: 40px;
+    font-size: 0.9em;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+}
+
+.color-box {
+    width: 15px;
+    height: 15px;
+    margin-right: 8px;
+    border-radius: 3px;
+}
+
+/* 圖例顏色定義 */
+.membership-color { background-color: #004c99; }
+.PT-color { background-color: #ffc107; }
+.retail-color { background-color: #8bc34a; }
+
+/* 響應式調整 */
+@media (max-width: 600px) {
+    .pie-chart-dummy {
+        width: 200px;
+        height: 200px;
+    }
+    .chart-legend {
+        flex-direction: column; /* 手機上垂直堆疊圖例 */
+        gap: 10px;
+        align-items: flex-start;
+        padding-left: 20px;
+    }
+}
