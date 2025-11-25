@@ -413,6 +413,17 @@ html {
         max-height: 300px; 
         border-top: 1px solid rgba(255, 255, 255, 0.3);
     }
+
+    .main-header {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 50px 20px; 
+        text-align: center;
+        box-shadow: 0 4px 6px var(--shadow-color);
+    
+    /* 新增此行：為絕對定位的子元素 (main-nav) 提供參考點 */
+    position: relative; 
+}
     
     /* 4. 讓連結獨佔一行 */
     .nav-link {
