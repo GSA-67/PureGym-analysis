@@ -399,7 +399,7 @@ html {
         top: 100%; /* 從 Header 底部開始 */
         left: 0;
         background-color: #004c99; /* 與 Header 相同的深藍色 */
-        z-index: 100; /* 確保它在其他內容之上 */
+        z-index: 1000; /* 確保它在其他內容之上 */
         overflow: hidden; /* 隱藏超出邊界的部分 */
         
         /* 預設收起 (使用 max-height 進行動畫) */
